@@ -1,9 +1,9 @@
 Hinagiku::Application.routes.draw do
   root :to => "tasks#index"
   resources :tasks do
-    put :finish, :on => :member
-    put :restart, :on => :member
-    get :done, :on => :collection
+    put :finish,:on => :member
+    put :restart,:on => :member
+    get :done,:search,:on => :collection
 
   end
   # The priority is based upon order of creation:
