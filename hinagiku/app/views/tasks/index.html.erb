@@ -4,6 +4,7 @@
   :style => "text-align: right" do %>
 <%= text_field_tag "query", params[:query] %>
 <%= submit_tag "検索" %>
+<%= render "categories" if Category.all.present? %>
 <% end %>
 
 <ul class="navigation">
