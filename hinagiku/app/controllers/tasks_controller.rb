@@ -1,9 +1,20 @@
 class TasksController < ApplicationController
   def index
-    @tasks = Task.undone
+    if params[:category_id]
+      @category = Category.find(params[:category_id])
+      #@tasks = Task.undone
+      @tasks = @category.tasks.undone
+    else
+      @tasks = Task.undone
+    end
   end
-  def done
-    @tasks = Task.done
+ def done
+    if params[:category_id]
+      @category = Category.find(params[:category_id])
+      @tasks = @category.tasks.done
+    else
+      @tasks = Task.done
+    end
     render :index
   end
   
